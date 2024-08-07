@@ -32,7 +32,7 @@ public class SlidingWindowRateLimiter implements  RateLimiter {
         cleanUpOlderEntries(currentTimeInSeconds);
 
         //add current request into window
-        if (slidingWindow.size() < bucketCapacity) {
+        if (slidingWindow.size() <= bucketCapacity) {
             slidingWindow.offer(currentTimeInSeconds);
             return true;
         }
